@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Container, Col, Table } from 'react-bootstrap';
 import Grafica from "./Grafica";
 import "./pokemon.css";
+import { FormattedMessage } from 'react-intl';
 
 function Pokemon() {
 
@@ -39,16 +40,16 @@ function Pokemon() {
             <Row>
                 <Col>
                     <Table striped bordered hover size="sm">
-                        <thead>
+                        <thead className={<FormattedMessage id="thead" />}>
                             <tr>
-                                <th>#</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Height</th>
-                                <th>Weight</th>
-                                <th>Type</th>
-                            </tr>
+                            <th scope="col"><FormattedMessage id="#" /></th>
+                            <th scope="col"><FormattedMessage id="Image" /></th>
+                            <th scope="col"><FormattedMessage id="Name" /></th>
+                            <th scope="col"><FormattedMessage id="Description" /></th>
+                            <th scope="col"><FormattedMessage id="Height" /></th>
+                            <th scope="col"><FormattedMessage id="Weight" /></th>
+                            <th scope="col"><FormattedMessage id="Type" /></th>
+                        </tr>
                         </thead>
                         <tbody>
                             {pokemonesEspanol.map(pokemon_actual =>

@@ -5,12 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import { IntlProvider } from 'react-intl';
+import estructuraEspanol from "./locales/es";
+import estructuraIngles from "./locales/en";
 
+let idioma = "";
+
+if (window.navigator.language.split("-")[0] === 'es') {
+  idioma = estructuraEspanol
+}
+else {
+  idioma = estructuraIngles
+}
+console.log(idioma);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <IntlProvider locale={window.navigator.language.split("-")[0]} messages={idioma}>
     <App />
-  </React.StrictMode>,
+</IntlProvider>,
   document.getElementById('root')
 );
 
